@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOSQL</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    .usuario-info {
+      background-color: #f5f5f5;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  // Dados JSON simulados
+  const usuarios = [
+    {
+      "nome": "Kayque",
+      "sobrenome": "Peixoto",
+      "idade": 19,
+      "curso": "Informática",
+      "materias": [
+        {
+          "nome": "Matematica",
+          "nota1": 70,
+          "nota2": 95
+        }
+      ]
+    }
+  ];
+
+  // Função para adicionar um novo usuário
+  function adicionarUsuario(usuario) {
+    usuarios.push(usuario);
+    console.log('Usuário adicionado com sucesso!');
+  }
+
+  // Função para exibir todos os usuários
+  function exibirUsuarios() {
+    // Criando um elemento div para exibir os usuários na página
+    const divUsuarios = document.createElement('div');
+
+    // Iterando sobre os usuários e adicionando-os à div
+    usuarios.forEach(usuario => {
+      const usuarioInfo = document.createElement('div');
+      usuarioInfo.classList.add('usuario-info');
+
+      // Utilizando JSON.stringify com recuo de 2 espaços para formatar a saída
+      usuarioInfo.textContent = JSON.stringify(usuario, null, 2);
+      divUsuarios.appendChild(usuarioInfo);
+    });
+
+    // Adicionando a div à body
+    document.body.appendChild(divUsuarios);
+  }
+
+  // Criando um novo usuário
+  const novoUsuario = {
+    "nome": "Karol",
+    "sobrenome": "Oliveira",
+    "idade": 18,
+    "curso": "Engenharia de software",
+    "materias": [
+      {
+        "nome": "Programação",
+        "nota1": 85,
+        "nota2": 90
+      }
+    ]
+  };
+
+  // Adicionando o novo usuário
+  adicionarUsuario(novoUsuario);
+
+  // Exibindo todos os usuários após a adição
+  exibirUsuarios();
+</script>
+
+</body>
+</html>
